@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://mfpv08cai412"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_t1gca"]
+[ext_resource type="Shader" uid="uid://4h1ygym1j4wi" path="res://PostProcessing.gdshader" id="1_7xhe0"]
 
 [sub_resource type="Environment" id="Environment_srgcj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii5jo"]
+render_priority = 0
+shader = ExtResource("1_7xhe0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_t1gca"]
+material = SubResource("ShaderMaterial_ii5jo")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7xhe0"]
 
@@ -22,10 +31,6 @@ stretch_shrink = 8
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1627329360]
 size = Vector2i(240, 135)
 
-[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=753226372]
-visible = false
-mesh = SubResource("QuadMesh_t1gca")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1064349118]
 environment = SubResource("Environment_srgcj")
 
@@ -34,12 +39,18 @@ transform = Transform3D(1, 0, 0, 0, 0.6299306, 0.7766515, 0, -0.7766515, 0.62993
 shadow_enabled = true
 
 [node name="CamRig" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1994310729]
-transform = Transform3D(0.70947236, -0.35236666, 0.61031693, 0, 0.8660254, 0.5, -0.7047333, -0.35473618, 0.61442107, 1.2510736, 1.2028835, 1.2925277)
+transform = Transform3D(0.70947236, -0.35236666, 0.61031693, 0, 0.8660254, 0.5, -0.7047333, -0.35473618, 0.61442107, 2.1812115, 2.2026548, 1.8923842)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamRig" unique_id=921208204]
-transform = Transform3D(1, 1.4901161e-08, 1.1920929e-07, 0, 1.0000001, 1.6391277e-07, -1.1920929e-07, -1.6391277e-07, 1, 0.1189121, 0.24341866, 1.2119377)
+transform = Transform3D(1, 1.4901161e-08, 5.9604645e-08, 0, 1.0000001, 1.3411045e-07, -1.1920929e-07, -1.6391277e-07, 1, 0, 0, 0)
 projection = 1
 far = 30.0
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CamRig/Camera3D" unique_id=753226372]
+transform = Transform3D(0.7094723, -4.4703484e-08, -0.7047333, -0.35236675, 0.8660253, -0.35473627, 0.61031693, 0.5000001, 0.614421, -0.09562671, -0.38580275, -3.3710873)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_t1gca")
 
 [node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=139878930]
 mesh = SubResource("PlaneMesh_7xhe0")
