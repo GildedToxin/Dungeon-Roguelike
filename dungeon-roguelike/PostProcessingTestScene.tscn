@@ -32,8 +32,6 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamRig" unique_id=921208204]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=606983859]
-
 [node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=139878930]
 mesh = SubResource("PlaneMesh_7xhe0")
 
