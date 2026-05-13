@@ -13,38 +13,47 @@
 [node name="Node3D" type="Node3D" unique_id=1704006477]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1284341304]
-offset_right = 40.0
-offset_bottom = 40.0
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+stretch = true
+stretch_shrink = 8
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1627329360]
+size = Vector2i(240, 135)
 
 [node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=753226372]
+visible = false
 mesh = SubResource("QuadMesh_t1gca")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1064349118]
 environment = SubResource("Environment_srgcj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1664800555]
-transform = Transform3D(1, 0, 0, 0, 0.87942433, 0.47603866, 0, -0.47603866, 0.87942433, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.6299306, 0.7766515, 0, -0.7766515, 0.6299306, 0, 0, 0)
 shadow_enabled = true
 
 [node name="CamRig" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1994310729]
+transform = Transform3D(0.70947236, -0.35236666, 0.61031693, 0, 0.8660254, 0.5, -0.7047333, -0.35473618, 0.61442107, 1.2510736, 1.2028835, 1.2925277)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamRig" unique_id=921208204]
+transform = Transform3D(1, 1.4901161e-08, 1.1920929e-07, 0, 1.0000001, 1.6391277e-07, -1.1920929e-07, -1.6391277e-07, 1, 0.1189121, 0.24341866, 1.2119377)
+projection = 1
+far = 30.0
 
 [node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=139878930]
 mesh = SubResource("PlaneMesh_7xhe0")
 
 [node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1585979519]
-transform = Transform3D(0.26408917, 0, 0, 0, 0.2914797, 0, 0, 0, 0.26408917, 0.40276936, 0.15054518, -0.28433028)
+transform = Transform3D(0.23845617, 0, -0.11349775, 0, 0.29147968, 0, 0.11349775, 0, 0.23845617, 0.40276936, 0.15054518, -0.28433028)
 mesh = SubResource("BoxMesh_j5sfn")
 
 [node name="Cube2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1290378814]
-transform = Transform3D(0.27968115, 0, 0, 0, 0.55862236, 0, 0, 0, 0.27968115, -0.13771069, 0.28549415, -0.23922098)
+transform = Transform3D(0.17844468, 0, -0.21535794, 0, 0.55862236, 0, 0.21535794, 0, 0.17844468, -0.13771069, 0.28549415, -0.23922098)
 mesh = SubResource("BoxMesh_j5sfn")
 
 [node name="Cube3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1139506819]
-transform = Transform3D(0.19574332, 0, 0, 0, 0.11734158, 0, 0, 0, 0.19574332, 0.100541234, 0.061050236, 0.2614445)
+transform = Transform3D(0.18154502, 0, 0.07319052, 0, 0.11734157, 0, -0.07319052, 0, 0.18154502, 0.100541234, 0.061050236, 0.2614445)
 mesh = SubResource("BoxMesh_j5sfn")
 
 [node name="Cylinder" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=696762338]
