@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cr5lr1hhq67gw"]
+
+[ext_resource type="Script" uid="uid://ds116btnx83sn" path="res://player_controller.gd" id="1_ktei5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kbf48"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0d4hx"]
+albedo_color = Color(1, 0.101960786, 0.11372549, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vbvf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ktei5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbf48"]
+
+[node name="PlayerControllerTest" type="Node3D" unique_id=1444013953]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1213550931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.3314848)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1406425848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42386296, 0)
+script = ExtResource("1_ktei5")
+
+[node name="Model" type="MeshInstance3D" parent="Player" unique_id=115598288]
+mesh = SubResource("BoxMesh_kbf48")
+surface_material_override/0 = SubResource("StandardMaterial3D_0d4hx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=460652750]
+shape = SubResource("BoxShape3D_7vbvf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=243609777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4015301, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=405668490]
+transform = Transform3D(3, 0, 0, 0, 0.251, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_ktei5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1316989665]
+transform = Transform3D(3, 0, 0, 0, 0.25, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_kbf48")
