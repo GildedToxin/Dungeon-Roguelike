@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, cull_disabled, depth_draw_never, depth_test_disabled;
 
 void vertex() {
 	POSITION = vec4(VERTEX.xy, 1.0, 1.0);
