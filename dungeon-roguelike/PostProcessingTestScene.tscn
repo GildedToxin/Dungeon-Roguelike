@@ -1,3 +1,54 @@
 [gd_scene format=3 uid="uid://mfpv08cai412"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_t1gca"]
+
+[sub_resource type="Environment" id="Environment_srgcj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7xhe0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5sfn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3gpu4"]
+
 [node name="Node3D" type="Node3D" unique_id=1704006477]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1284341304]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1627329360]
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=753226372]
+mesh = SubResource("QuadMesh_t1gca")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1064349118]
+environment = SubResource("Environment_srgcj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1664800555]
+transform = Transform3D(1, 0, 0, 0, 0.87942433, 0.47603866, 0, -0.47603866, 0.87942433, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CamRig" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1994310729]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamRig" unique_id=921208204]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=606983859]
+
+[node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=139878930]
+mesh = SubResource("PlaneMesh_7xhe0")
+
+[node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1585979519]
+transform = Transform3D(0.26408917, 0, 0, 0, 0.2914797, 0, 0, 0, 0.26408917, 0.40276936, 0.15054518, -0.28433028)
+mesh = SubResource("BoxMesh_j5sfn")
+
+[node name="Cube2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1290378814]
+transform = Transform3D(0.27968115, 0, 0, 0, 0.55862236, 0, 0, 0, 0.27968115, -0.13771069, 0.28549415, -0.23922098)
+mesh = SubResource("BoxMesh_j5sfn")
+
+[node name="Cube3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1139506819]
+transform = Transform3D(0.19574332, 0, 0, 0, 0.11734158, 0, 0, 0, 0.19574332, 0.100541234, 0.061050236, 0.2614445)
+mesh = SubResource("BoxMesh_j5sfn")
+
+[node name="Cylinder" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=696762338]
+transform = Transform3D(0.30075037, 0, 0, 0, 0.1967693, 0, 0, 0, 0.30075037, -0.4570729, 0.19919586, 0.51622)
+mesh = SubResource("CylinderMesh_3gpu4")
