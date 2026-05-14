@@ -5,13 +5,22 @@
 
 [sub_resource type="Environment" id="Environment_srgcj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5sfn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xhe0"]
 render_priority = 0
 shader = ExtResource("1_7xhe0")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gpu4"]
+[sub_resource type="QuadMesh" id="QuadMesh_t1gca"]
+material = SubResource("ShaderMaterial_7xhe0")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5sfn"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_j5sfn")
 shader = ExtResource("2_7xhe0")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/clamp_diffuse_to_max = false
@@ -29,16 +38,52 @@ shader_parameter/use_ramp = false
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01
 
-[sub_resource type="QuadMesh" id="QuadMesh_t1gca"]
-material = SubResource("ShaderMaterial_3gpu4")
-flip_faces = true
-size = Vector2(2, 2)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_7xhe0"]
+material = SubResource("ShaderMaterial_j5sfn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gpu4"]
+render_priority = 0
+shader = ExtResource("2_7xhe0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
 
 [sub_resource type="BoxMesh" id="BoxMesh_j5sfn"]
+material = SubResource("ShaderMaterial_3gpu4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii5jo"]
+render_priority = 0
+shader = ExtResource("2_7xhe0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3gpu4"]
+material = SubResource("ShaderMaterial_ii5jo")
 
 [node name="Node3D" type="Node3D" unique_id=1704006477]
 
@@ -62,10 +107,10 @@ transform = Transform3D(1, 0, 0, 0, 0.6299306, 0.7766515, 0, -0.7766515, 0.62993
 shadow_enabled = true
 
 [node name="CamRig" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1994310729]
-transform = Transform3D(0.70947236, -0.35236666, 0.61031693, 0, 0.8660254, 0.5, -0.7047333, -0.35473618, 0.61442107, 2.1812115, 2.2026548, 1.8923842)
+transform = Transform3D(0.70947236, -0.35236666, 0.61031693, 0, 0.8660254, 0.5, -0.7047333, -0.35473618, 0.61442107, 2.4271412, 2.234983, 2.265634)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamRig" unique_id=921208204]
-transform = Transform3D(1, 1.4901161e-08, 5.9604645e-08, 0, 1.0000001, 1.3411045e-07, -1.1920929e-07, -1.6391277e-07, 1, 0, 0, 0)
+transform = Transform3D(1, 1.4901161e-08, 5.9604645e-08, 0, 1.0000001, 1.3411045e-07, -1.1920929e-07, -1.6391277e-07, 1, -0.2180785, 0.012910187, -0.022360802)
 projection = 1
 far = 30.0
 
@@ -86,7 +131,7 @@ transform = Transform3D(0.23845617, 8.686771e-09, -0.11349776, 7.106548e-09, 0.2
 mesh = SubResource("BoxMesh_j5sfn")
 
 [node name="Cube2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level" unique_id=1290378814]
-transform = Transform3D(0.17844468, 1.6648244e-08, -0.21535794, 5.318066e-09, 0.55862236, -6.418167e-09, 0.21535794, 1.6648244e-08, 0.17844468, -0.32958996, 0.10249835, -0.26458812)
+transform = Transform3D(0.17844468, 1.6648244e-08, -0.21535794, 5.318066e-09, 0.55862236, -6.418167e-09, 0.21535794, 1.6648244e-08, 0.17844468, -0.32958996, 0.10275608, -0.26458812)
 mesh = SubResource("BoxMesh_j5sfn")
 
 [node name="Cube3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level" unique_id=1139506819]
@@ -94,5 +139,5 @@ transform = Transform3D(0.18154502, 3.4970513e-09, 0.07319051, 5.410463e-09, 0.1
 mesh = SubResource("BoxMesh_j5sfn")
 
 [node name="Cylinder" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level" unique_id=696762338]
-transform = Transform3D(0.30075037, 5.864182e-09, -8.96306e-09, 8.96306e-09, 0.1967693, -2.6712e-16, 8.96306e-09, 5.864182e-09, 0.30075037, -0.64895225, 0.01620005, 0.49085283)
+transform = Transform3D(0.30075037, 5.864182e-09, -8.96306e-09, 8.96306e-09, 0.1967693, -2.6712e-16, 8.96306e-09, 5.864182e-09, 0.30075037, -0.64895225, 0.01822494, 0.49085283)
 mesh = SubResource("CylinderMesh_3gpu4")
