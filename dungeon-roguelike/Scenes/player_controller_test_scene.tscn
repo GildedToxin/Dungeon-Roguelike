@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cr5lr1hhq67gw"]
 
-[ext_resource type="Script" uid="uid://d0d5ifjkw6g3t" path="res://camera_rig.gd" id="1_5iker"]
-[ext_resource type="Script" uid="uid://dsjc85312d6ho" path="res://camera_utils.gd" id="2_q7by7"]
-[ext_resource type="PackedScene" uid="uid://dskimq7aam0br" path="res://player.tscn" id="3_vfby1"]
+[ext_resource type="Script" uid="uid://d0d5ifjkw6g3t" path="res://Scripts/camera_rig.gd" id="1_5iker"]
+[ext_resource type="Script" uid="uid://dsjc85312d6ho" path="res://Scripts/camera_utils.gd" id="2_q7by7"]
+[ext_resource type="PackedScene" uid="uid://dskimq7aam0br" path="res://Assets/player.tscn" id="3_vfby1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ktei5"]
 

@@ -10,11 +10,11 @@ uniform bool clamp_diffuse_to_max = false;
 
 uniform int cuts : hint_range(1, 8) = 3;
 uniform float wrap : hint_range(-2.0f, 2.0f) = 0.0f;
-uniform float steepness : hint_range(1.0f, 8.0f) = 1.0f;
+uniform float steepness : hint_range(1.0f, 8.0f) = 2.0f;
 
 uniform bool use_attenuation = true;
 
-uniform bool use_specular = true;
+uniform bool use_specular = false;
 uniform float specular_strength : hint_range(0.0f, 1.0f) = 1.0f;
 uniform float specular_shininess : hint_range(0.0f, 32.0f) = 16.0f;
 uniform sampler2D specular_map : source_color;
