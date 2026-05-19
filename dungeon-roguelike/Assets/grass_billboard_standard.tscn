@@ -4,6 +4,7 @@
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
+shading_mode = 0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_i8nu1"]
