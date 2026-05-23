@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mfpv08cai412"]
 
 [ext_resource type="Shader" uid="uid://cpd1kta6eyid3" path="res://Shaders/post_processing_new.gdshader" id="1_5cdcr"]
-[ext_resource type="Texture2D" uid="uid://4s8i0i03c1v1" path="res://Assets/GrassBladesSprite.png" id="2_5cdcr"]
+[ext_resource type="Shader" uid="uid://bb46o2gfxcq67" path="res://Shaders/grass_shader.gdshader" id="2_5cdcr"]
 [ext_resource type="Shader" uid="uid://dqg2a5ev3rm4c" path="res://Shaders/ToonShader.gdshader" id="2_e1a36"]
 [ext_resource type="PackedScene" uid="uid://baxkp7h6nixys" path="res://Assets/grass_billboard_standard.tscn" id="3_e1a36"]
 
@@ -33,24 +33,20 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc7o8"]
+specular_mode = 2
 albedo_color = Color(0.4627451, 0.8509804, 0.3882353, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7xhe0"]
 material = SubResource("StandardMaterial3D_fc7o8")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjgqi"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-depth_draw_mode = 2
-shading_mode = 0
-albedo_color = Color(0.4627451, 0.8509804, 0.3882353, 1)
-albedo_texture = ExtResource("2_5cdcr")
-texture_filter = 0
-billboard_mode = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yk8w2"]
+render_priority = 0
+shader = ExtResource("2_5cdcr")
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/target_color = Color(1, 1, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_i8nu1"]
-material = SubResource("StandardMaterial3D_kjgqi")
+material = SubResource("ShaderMaterial_yk8w2")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="MultiMesh" id="MultiMesh_5cdcr"]
