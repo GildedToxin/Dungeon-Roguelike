@@ -1,10 +1,15 @@
 shader_type spatial;
 render_mode depth_draw_never, specular_disabled, ambient_light_disabled, diffuse_lambert;
 
+// Assign a ViewportTexture pointing at a top-down camera above the ground
+uniform sampler2D ground_texture : source_color, hint_default_white;
+
 //uniform sampler2D texture_albedo : source_color, filter_nearest;
 //uniform float alpha_scissor_threshold : hint_range(0.0, 1.0) = 0.5;
-//uniform sampler2D target_albedo_texture : source_color, filter_linear_mipmap;
-uniform vec4 target_color : source_color = vec4(1.0);
+uniform vec2 ground_min; // world x and z min
+uniform vec2 ground_max; // world X and Z max
+
+uniform float roughness : hint_range(0.0, 1.0) = 0.8;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -22,19 +27,16 @@ void vertex() {
 void fragment() {
 	// Called for every pixel the material is visible on.
 	
-	// Alpha scissor thing
-	//vec4 albedo_tex = texture(texture_albedo, UV);
-	//ALBEDO = albedo_tex.rgb;
-	//ALPHA = albedo_tex.a;
-	//ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
-	
-	// Matching texture color to floor color
-	//vec4 tex_color = texture(target_albedo_texture, UV);
-	//ALBEDO = tex_color.rgb;
-	
-	vec3 base_color = vec3(1.0, 1.0, 1.0); // Replace with your texture or albedo
-	
-	ALBEDO = target_color.rgb;
+	// Reconstruct world XZ position from the model matrix
+    vec3 world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+
+    // Remap world XZ to UV [0,1]
+    vec2 uv = (world_pos.xz - ground_min) / (ground_max - ground_min);
+
+    vec4 ground_color = texture(ground_texture, uv);
+
+    ALBEDO = ground_color.rgb;
+    ROUGHNESS = roughness;
 }
 
 void light() {

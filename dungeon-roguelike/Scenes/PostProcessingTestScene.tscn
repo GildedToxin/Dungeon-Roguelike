@@ -41,10 +41,17 @@ albedo_color = Color(0.4627451, 0.8509804, 0.3882353, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_7xhe0"]
 material = SubResource("StandardMaterial3D_fc7o8")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_5cdcr"]
+viewport_path = NodePath("../../../../GroundCaptureViewport")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yk8w2"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_5cdcr")
-shader_parameter/target_color = Color(1, 1, 1, 1)
+shader_parameter/ground_texture = SubResource("ViewportTexture_5cdcr")
+shader_parameter/ground_min = Vector2(-10, -10)
+shader_parameter/ground_max = Vector2(10, 10)
+shader_parameter/roughness = 0.8
 
 [sub_resource type="QuadMesh" id="QuadMesh_i8nu1"]
 material = SubResource("ShaderMaterial_yk8w2")
@@ -158,7 +165,9 @@ mesh = SubResource("PlaneMesh_7xhe0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5495084e-18, 0.024893045, 0)
 multimesh = SubResource("MultiMesh_5cdcr")
 
-[node name="grass_standard" parent="SubViewportContainer/SubViewport/Level/Floor/MultiMeshInstance3D" unique_id=1834418723 instance=ExtResource("3_e1a36")]
+[node name="grass_standard" parent="SubViewportContainer/SubViewport/Level/Floor/MultiMeshInstance3D" unique_id=1834418723 node_paths=PackedStringArray("ground_plane", "grass_mesh") instance=ExtResource("3_e1a36")]
+ground_plane = NodePath("../..")
+grass_mesh = NodePath(".")
 
 [node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level" unique_id=1585979519]
 transform = Transform3D(0.23845617, 8.686771e-09, -0.11349776, 7.106548e-09, 0.29147968, -3.3824967e-09, 0.11349776, 8.686771e-09, 0.23845617, 0.21089008, -0.0324506, -0.3096974)
@@ -175,3 +184,11 @@ mesh = SubResource("BoxMesh_j5sfn")
 [node name="Cylinder" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level" unique_id=696762338]
 transform = Transform3D(0.30075037, 5.864182e-09, -8.96306e-09, 8.96306e-09, 0.1967693, -2.6712e-16, 8.96306e-09, 5.864182e-09, 0.30075037, -0.6725867, 0.01822503, 0.4703853)
 mesh = SubResource("CylinderMesh_3gpu4")
+
+[node name="GroundCaptureViewport" type="SubViewport" parent="SubViewportContainer/SubViewport" unique_id=1608171624]
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/GroundCaptureViewport" unique_id=612826135]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.3898268, 0)
+projection = 1
+size = 8.477
