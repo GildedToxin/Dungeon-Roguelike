@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yk8w2"]
 render_priority = 0
 shader = ExtResource("2_ord35")
-shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/target_color = Color(1, 1, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_i8nu1"]
 material = SubResource("ShaderMaterial_yk8w2")

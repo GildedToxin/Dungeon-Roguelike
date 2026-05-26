@@ -1,9 +1,9 @@
 shader_type spatial;
 render_mode depth_draw_never, specular_disabled, ambient_light_disabled, diffuse_lambert;
 
-uniform sampler2D texture_albedo : source_color, filter_nearest;
-uniform float alpha_scissor_threshold : hint_range(0.0, 1.0) = 0.5;
-uniform sampler2D target_albedo_texture : source_color, filter_linear_mipmap;
+//uniform sampler2D texture_albedo : source_color, filter_nearest;
+//uniform float alpha_scissor_threshold : hint_range(0.0, 1.0) = 0.5;
+//uniform sampler2D target_albedo_texture : source_color, filter_linear_mipmap;
 uniform vec4 target_color : source_color = vec4(1.0);
 
 void vertex() {
@@ -23,10 +23,10 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	
 	// Alpha scissor thing
-	vec4 albedo_tex = texture(texture_albedo, UV);
-	ALBEDO = albedo_tex.rgb;
-	ALPHA = albedo_tex.a;
-	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
+	//vec4 albedo_tex = texture(texture_albedo, UV);
+	//ALBEDO = albedo_tex.rgb;
+	//ALPHA = albedo_tex.a;
+	//ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
 	
 	// Matching texture color to floor color
 	//vec4 tex_color = texture(target_albedo_texture, UV);
