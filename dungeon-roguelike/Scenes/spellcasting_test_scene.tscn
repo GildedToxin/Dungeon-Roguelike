@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c8xpokypwwt3u"]
 
+[ext_resource type="Script" uid="uid://p8iw5k8xkbyi" path="res://Scenes/spell_casting_manager.gd" id="1_qd26w"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30qil"]
 albedo_color = Color(0.11312426, 0.15515004, 0.17111987, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_30qil"]
 material = SubResource("StandardMaterial3D_30qil")
 size = Vector2(6, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd26w"]
 
 [node name="SpellcastingTestScene" type="Node3D" unique_id=716922711]
 
@@ -18,15 +18,30 @@ mesh = SubResource("PlaneMesh_30qil")
 
 [node name="SpellCastingUI" type="Control" parent="CanvasLayer" unique_id=2048991304]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_qd26w")
 
 [node name="SlotsContainer" type="Node2D" parent="CanvasLayer/SpellCastingUI" unique_id=1779974126]
+position = Vector2(640, 360)
 
-[node name="SigilSlot1" type="Area2D" parent="CanvasLayer/SpellCastingUI/SlotsContainer" unique_id=1718250623]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/SpellCastingUI/SlotsContainer/SigilSlot1" unique_id=610565368]
-shape = SubResource("RectangleShape2D_qd26w")
+[node name="SigilSlot01" type="Control" parent="CanvasLayer/SpellCastingUI/SlotsContainer" unique_id=1869982316]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
