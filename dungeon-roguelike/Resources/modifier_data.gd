@@ -1,3 +1,4 @@
+# Data for modifiers
 class_name ModifierData
 extends Resource
 

@@ -1,3 +1,4 @@
+# Data for basic spell stats with defaults
 class_name SpellBehavior
 extends Resource
 

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c8xpokypwwt3u"]
 
+[ext_resource type="Script" uid="uid://c2hcq61pq6a2b" path="res://Scripts/spell_caster.gd" id="1_2ats5"]
 [ext_resource type="Script" uid="uid://p8iw5k8xkbyi" path="res://Scenes/spell_casting_manager.gd" id="1_qd26w"]
 [ext_resource type="PackedScene" uid="uid://b4wnbviojmhm8" path="res://Assets/spell_circle.tscn" id="2_s3oam"]
 
@@ -11,6 +12,9 @@ material = SubResource("StandardMaterial3D_30qil")
 size = Vector2(6, 6)
 
 [node name="SpellcastingTestScene" type="Node3D" unique_id=716922711]
+
+[node name="Caster" type="MeshInstance3D" parent="." unique_id=192899278]
+script = ExtResource("1_2ats5")
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=672187491]
 mesh = SubResource("PlaneMesh_30qil")

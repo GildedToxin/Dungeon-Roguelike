@@ -1,3 +1,4 @@
+# Data for sigils
 class_name SigilData
 extends Resource
 
