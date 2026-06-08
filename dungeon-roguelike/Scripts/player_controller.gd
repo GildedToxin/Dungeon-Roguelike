@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 @export var player_rotation_speed: float = 0.1
 
-@export var health_component: Health_Component
+@export var health_component: HealthComponent
 	
 func _physics_process(delta: float) -> void:
 

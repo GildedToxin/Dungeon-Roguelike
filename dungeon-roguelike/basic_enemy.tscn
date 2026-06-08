@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c74a34oy8qd0"]
 
+[ext_resource type="Script" uid="uid://bbt2tv46tokat" path="res://Assets/health_component.gd" id="1_naotq"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_m37v0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_naotq"]
@@ -22,3 +24,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_naotq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=498290347]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("BoxShape3D_rwafm")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2100450032]
+script = ExtResource("1_naotq")
+metadata/_custom_type_script = "uid://bbt2tv46tokat"

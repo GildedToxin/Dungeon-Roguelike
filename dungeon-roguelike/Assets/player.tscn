@@ -35,7 +35,7 @@ size = Vector2(2, 2)
 [node name="Player" type="CharacterBody3D" unique_id=1931111436 node_paths=PackedStringArray("camera", "health_component")]
 script = ExtResource("1_4flbx")
 camera = NodePath("Camera_Controller/Camera_Target/Camera3D")
-health_component = NodePath("Health Component")
+health_component = NodePath("HealthComponent")
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1099329490]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
@@ -73,5 +73,5 @@ transform = Transform3D(0.7094724, -3.2358955e-08, -0.7047333, -0.35236675, 0.86
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_iv8i7")
 
-[node name="Health Component" type="Node" parent="." unique_id=1288673849]
+[node name="HealthComponent" type="Node" parent="." unique_id=1288673849]
 script = ExtResource("3_x2ivp")

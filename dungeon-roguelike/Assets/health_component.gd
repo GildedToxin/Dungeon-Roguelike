@@ -1,5 +1,5 @@
 extends Node
-class_name Health_Component
+class_name HealthComponent
 
 
 signal damaged(amount: int)
