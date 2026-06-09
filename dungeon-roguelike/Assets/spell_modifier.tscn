@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://daxpbnyymaiv2" path="res://Scripts/SpellCasting/spell_draggable.gd" id="1_g011s"]
 
-[node name="SpellModifier" type="Node2D" unique_id=2136588867]
+[node name="SpellModifier" type="Control" unique_id=1748721305]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_g011s")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1815744350]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,4 +22,5 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.4509804, 0.8745098, 0.8627451, 1)

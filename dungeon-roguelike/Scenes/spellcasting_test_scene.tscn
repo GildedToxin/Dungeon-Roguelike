@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2hcq61pq6a2b" path="res://Scripts/SpellCasting/spell_caster.gd" id="1_2ats5"]
 [ext_resource type="Script" uid="uid://p8iw5k8xkbyi" path="res://Scripts/SpellCasting/spell_casting_manager.gd" id="1_qd26w"]
 [ext_resource type="PackedScene" uid="uid://b4wnbviojmhm8" path="res://Assets/spell_circle.tscn" id="2_s3oam"]
+[ext_resource type="PackedScene" uid="uid://ccpyhag683ak3" path="res://Assets/spell_modifier.tscn" id="4_yxgvn"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_2ats5"]
 radius = 0.25
@@ -29,6 +30,7 @@ script = ExtResource("1_2ats5")
 mesh = SubResource("PlaneMesh_30qil")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=998989899]
+follow_viewport_enabled = true
 
 [node name="SpellCastingUI" type="Control" parent="CanvasLayer" unique_id=2048991304]
 layout_mode = 3
@@ -45,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_qd26w")
 
 [node name="SpellCircle" parent="CanvasLayer/SpellCastingUI" unique_id=50787285 instance=ExtResource("2_s3oam")]
@@ -71,6 +74,35 @@ offset_bottom = 340.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(100, 340)
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SpellCastingUI/SigilContainer" unique_id=699602140]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -325.0
+offset_right = 100.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/MarginContainer" unique_id=1748721305 instance=ExtResource("4_yxgvn")]
+layout_mode = 2
+
+[node name="SpellModifier2" parent="CanvasLayer/SpellCastingUI/SigilContainer/MarginContainer" unique_id=330368133 instance=ExtResource("4_yxgvn")]
+layout_mode = 2
+
+[node name="SpellModifier3" parent="CanvasLayer/SpellCastingUI/SigilContainer/MarginContainer" unique_id=229776258 instance=ExtResource("4_yxgvn")]
+layout_mode = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1726085908]
 transform = Transform3D(1, 0, 0, 0, -0.21713822, 0.97614086, 0, -0.97614086, -0.21713822, 0, 0, 0)
