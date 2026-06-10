@@ -27,7 +27,7 @@ void fragment() {
 	vec4 tex = texture(albedo_texture, UV);
 	ALBEDO = tex.rgb * albedo_color.rgb;
 	ALPHA = tex.a;
-	ALPHA_SCISSOR_THRESHOLD = 0.5;
+	//ALPHA_SCISSOR_THRESHOLD = 0.5;
 }
 
 void light() {
