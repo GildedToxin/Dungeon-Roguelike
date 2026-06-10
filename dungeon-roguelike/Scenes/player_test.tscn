@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bq0j34xfy1h6e"]
 
 [ext_resource type="Shader" uid="uid://bb46o2gfxcq67" path="res://Shaders/grass_shader.gdshader" id="1_70u62"]
+[ext_resource type="Texture2D" uid="uid://4s8i0i03c1v1" path="res://Assets/GrassBladesSprite.png" id="2_wix4t"]
 [ext_resource type="PackedScene" uid="uid://baxkp7h6nixys" path="res://Assets/grass_billboard_standard.tscn" id="2_yi8xp"]
 [ext_resource type="Shader" uid="uid://dqg2a5ev3rm4c" path="res://Shaders/ToonShader.gdshader" id="3_wix4t"]
 [ext_resource type="PackedScene" uid="uid://dskimq7aam0br" path="res://Assets/player.tscn" id="4_5n1oj"]
@@ -25,21 +26,18 @@ material = SubResource("StandardMaterial3D_fc7o8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqirx"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5cdcr"]
-viewport_path = NodePath("../../../../GroundCaptureViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yk8w2"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_70u62")
-shader_parameter/ground_texture = SubResource("ViewportTexture_5cdcr")
-shader_parameter/ground_min = Vector2(-10, -10)
-shader_parameter/ground_max = Vector2(10, 10)
+shader_parameter/albedo_texture = ExtResource("2_wix4t")
+shader_parameter/albedo_color = Color(1.2652099, 2.2523863, 1.0766481, 1)
 shader_parameter/roughness = 0.8
+shader_parameter/metallic = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_i8nu1"]
 material = SubResource("ShaderMaterial_yk8w2")
-size = Vector2(0.1, 0.1)
+size = Vector2(0.3, 0.3)
 
 [sub_resource type="MultiMesh" id="MultiMesh_5cdcr"]
 transform_format = 1
@@ -140,11 +138,10 @@ shape = SubResource("BoxShape3D_kqirx")
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/Level/Floor" unique_id=1659041225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5495084e-18, 0.024893045, 0)
+cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cdcr")
 
-[node name="grass_standard" parent="SubViewportContainer/SubViewport/Level/Floor/MultiMeshInstance3D" unique_id=1834418723 node_paths=PackedStringArray("ground_plane", "grass_mesh") instance=ExtResource("2_yi8xp")]
-ground_plane = NodePath("../..")
-grass_mesh = NodePath(".")
+[node name="grass_standard" parent="SubViewportContainer/SubViewport/Level/Floor/MultiMeshInstance3D" unique_id=1834418723 instance=ExtResource("2_yi8xp")]
 
 [node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Level" unique_id=1585979519]
 transform = Transform3D(0.11349777, 1.7373544e-08, 0.23845622, -1.7595594e-08, 0.29147968, -3.4155323e-10, -0.23845622, -3.474709e-08, 0.11349777, -0.6284372, -0.03245063, -0.42518723)
