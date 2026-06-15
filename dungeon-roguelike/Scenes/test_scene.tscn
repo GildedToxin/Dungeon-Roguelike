@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c4loax645yjo7"]
+
+[ext_resource type="Shader" uid="uid://cpd1kta6eyid3" path="res://Shaders/post_processing_new.gdshader" id="1_3dogw"]
+
+[sub_resource type="Environment" id="Environment_6w285"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3dogw"]
+
+[sub_resource type="Compositor" id="Compositor_r5l72"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5l72"]
+render_priority = 0
+shader = ExtResource("1_3dogw")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_50ct6"]
+material = SubResource("ShaderMaterial_r5l72")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3dogw"]
+size = Vector2(30, 30)
+
+[node name="test_scene" type="Node3D" unique_id=2004884040]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2106523065]
+offset_right = 1280.0
+offset_bottom = 720.0
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=275008000]
+handle_input_locally = false
+size = Vector2i(426, 240)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1603107048]
+environment = SubResource("Environment_6w285")
+camera_attributes = SubResource("CameraAttributesPractical_3dogw")
+compositor = SubResource("Compositor_r5l72")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=271538455]
+transform = Transform3D(1, 0, 0, 0, 0.67583466, 0.7370533, 0, -0.7370533, 0.67583466, 0, 0, 0)
+
+[node name="CamRig" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=877175549]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamRig" unique_id=1051759744]
+
+[node name="PostProcessingMesh" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CamRig/Camera3D" unique_id=1920956017]
+mesh = SubResource("QuadMesh_50ct6")
+
+[node name="Level" type="Node3D" parent="." unique_id=1271558426]
+
+[node name="Floor" type="MeshInstance3D" parent="Level" unique_id=1029048756]
+mesh = SubResource("PlaneMesh_3dogw")
