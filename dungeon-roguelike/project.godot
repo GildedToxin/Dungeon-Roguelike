@@ -22,6 +22,10 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[dotnet]
+
+project/assembly_name="Dungeon Roguelike"
+
 [input]
 
 move_left={
