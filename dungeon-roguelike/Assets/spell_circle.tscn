@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b4wnbviojmhm8"]
 
 [ext_resource type="Texture2D" uid="uid://vwcwimkgp1u1" path="res://Assets/SpellCircle.png" id="1_res43"]
-[ext_resource type="Script" uid="uid://dhp3quu3ysylo" path="res://Scripts/SpellCasting/spell_draggable_target.gd" id="2_mxftx"]
 
 [node name="SpellCircle" type="Control" unique_id=1121701569]
 layout_mode = 3
@@ -54,7 +53,6 @@ offset_right = -640.0
 offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_mxftx")
 
 [node name="ModifierSlot_02" type="Control" parent="ModifierSlots" unique_id=1020648474]
 layout_mode = 3
