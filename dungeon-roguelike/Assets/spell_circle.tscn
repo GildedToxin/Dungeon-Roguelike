@@ -41,7 +41,7 @@ grow_vertical = 2
 pivot_offset = Vector2(192, 192)
 texture = ExtResource("1_res43")
 
-[node name="ModifierSlots" type="Control" parent="." unique_id=1118388143]
+[node name="Modifiers_1" type="Control" parent="." unique_id=1118388143]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,7 +51,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ModifierSlot_01" type="Control" parent="ModifierSlots" unique_id=919837612]
+[node name="ModifierSlot_01" type="Control" parent="Modifiers_1" unique_id=919837612]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,7 +66,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_02" type="Control" parent="ModifierSlots" unique_id=1020648474]
+[node name="ModifierSlot_02" type="Control" parent="Modifiers_1" unique_id=1020648474]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_03" type="Control" parent="ModifierSlots" unique_id=306435342]
+[node name="ModifierSlot_03" type="Control" parent="Modifiers_1" unique_id=306435342]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,7 +96,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_04" type="Control" parent="ModifierSlots" unique_id=1211621151]
+[node name="ModifierSlot_04" type="Control" parent="Modifiers_1" unique_id=1211621151]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,7 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_05" type="Control" parent="ModifierSlots" unique_id=197746390]
+[node name="ModifierSlot_05" type="Control" parent="Modifiers_1" unique_id=197746390]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -126,7 +126,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_06" type="Control" parent="ModifierSlots" unique_id=1925738512]
+[node name="ModifierSlot_06" type="Control" parent="Modifiers_1" unique_id=1925738512]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,7 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_07" type="Control" parent="ModifierSlots" unique_id=1178125983]
+[node name="ModifierSlot_07" type="Control" parent="Modifiers_1" unique_id=1178125983]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,7 +156,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mxftx")
 
-[node name="ModifierSlot_08" type="Control" parent="ModifierSlots" unique_id=98768025]
+[node name="ModifierSlot_08" type="Control" parent="Modifiers_1" unique_id=98768025]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
