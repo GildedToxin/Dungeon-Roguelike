@@ -76,7 +76,7 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 340)
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SpellCastingUI/SigilContainer" unique_id=699602140]
+[node name="Slots" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer" unique_id=1318205505]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,19 +90,146 @@ offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
 
-[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/MarginContainer" unique_id=1748721305 instance=ExtResource("4_yxgvn")]
-layout_mode = 2
+[node name="Slot_1" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=776303782]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_right = -45.0
+offset_bottom = 40.0
+grow_horizontal = 2
 
-[node name="SpellModifier2" parent="CanvasLayer/SpellCastingUI/SigilContainer/MarginContainer" unique_id=330368133 instance=ExtResource("4_yxgvn")]
-layout_mode = 2
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_1" unique_id=599924431 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 
-[node name="SpellModifier3" parent="CanvasLayer/SpellCastingUI/SigilContainer/MarginContainer" unique_id=229776258 instance=ExtResource("4_yxgvn")]
-layout_mode = 2
+[node name="Slot_2" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=1165999189]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_right = -5.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_2" unique_id=1598655976 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_3" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=1891223503]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_right = 35.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_3" unique_id=943922582 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_4" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=1258497051]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 35.0
+offset_right = 75.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_4" unique_id=884342667 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_5" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=693496046]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = 40.0
+offset_right = -45.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_5" unique_id=707767312 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_6" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=2016120984]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 40.0
+offset_right = -5.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_6" unique_id=1762245341 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_7" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=1391407550]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_top = 40.0
+offset_right = 35.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_7" unique_id=473204326 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_8" type="Control" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots" unique_id=1780560235]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 35.0
+offset_top = 40.0
+offset_right = 75.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="CanvasLayer/SpellCastingUI/SigilContainer/Slots/Slot_8" unique_id=235095265 instance=ExtResource("4_yxgvn")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1726085908]
 transform = Transform3D(1, 0, 0, 0, -0.21713822, 0.97614086, 0, -0.97614086, -0.21713822, 0, 0, 0)
