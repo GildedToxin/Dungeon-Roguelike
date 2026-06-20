@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://ccpyhag683ak3"]
 
-[ext_resource type="Script" uid="uid://daxpbnyymaiv2" path="res://Scripts/SpellCasting/spell_draggable.gd" id="1_g011s"]
-
 [node name="SpellModifier" type="Control" unique_id=1748721305]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_g011s")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1815744350]
 layout_mode = 1
