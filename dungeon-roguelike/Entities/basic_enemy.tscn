@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c74a34oy8qd0"]
 
+[ext_resource type="Script" uid="uid://dgfb4wx2l2fkj" path="res://Entities/basic_enemy.gd" id="1_h8mmp"]
 [ext_resource type="Script" uid="uid://bbt2tv46tokat" path="res://Entities/health_component.gd" id="1_naotq"]
+[ext_resource type="Script" uid="uid://cpw0gbqptp1uu" path="res://Entities/health_bar.gd" id="3_4mduw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m37v0"]
 
@@ -13,6 +15,7 @@ albedo_color = Color(1, 0.101960786, 0.11372549, 1)
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="BasicEnemy" type="CharacterBody3D" unique_id=1755374623]
+script = ExtResource("1_h8mmp")
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1977363320]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
@@ -39,7 +42,9 @@ texture = SubResource("ViewportTexture_naotq")
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=411896428]
 size = Vector2i(240, 30)
 
-[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport" unique_id=1289219716]
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport" unique_id=1289219716 node_paths=PackedStringArray("health_component")]
 offset_right = 240.0
 offset_bottom = 30.0
 value = 50.0
+script = ExtResource("3_4mduw")
+health_component = NodePath("../../../HealthComponent")
