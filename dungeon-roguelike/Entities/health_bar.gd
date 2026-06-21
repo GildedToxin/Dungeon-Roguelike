@@ -1,0 +1,12 @@
+extends ProgressBar
+
+@export var health_component: HealthComponent
+
+func _ready():
+	max_value = health_component.max_health
+	value = health_component.current_health
+
+	health_component.damaged.connect(_on_damaged)
+
+func _on_damaged(current: int, new_health: int):
+	value = new_health
