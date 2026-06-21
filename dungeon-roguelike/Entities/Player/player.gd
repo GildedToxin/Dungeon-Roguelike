@@ -5,7 +5,14 @@ extends CharacterBody3D
 @export var player_rotation_speed: float = 0.1
 
 @export var health_component: HealthComponent
-	
+
+var is_attacking : bool = false
+@onready var hitbox: Area3D = $AttackPivot/Hitbox 
+
+func _input(event):
+	if event.is_action_pressed("attack"):
+		attack()
+
 func _physics_process(delta: float) -> void:
 
 	# Add the gravity.
@@ -26,3 +33,15 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+
+func attack(): 
+	if is_attacking: 
+		return  
+	
+	is_attacking = true
+	hitbox.monitoring = true
+	
+	await get_tree().create_timer(0.15).timeout
+	
+	hitbox.monitoring = false
+	is_attacking = false
