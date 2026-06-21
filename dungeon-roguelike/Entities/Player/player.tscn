@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dskimq7aam0br"]
 
-[ext_resource type="Script" uid="uid://ds116btnx83sn" path="res://Entities/Player/player_movement.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://ds116btnx83sn" path="res://Entities/Player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bb53n60eaedei" path="res://Entities/Player/hitbox.gd" id="3_lu8i8"]
 [ext_resource type="Script" uid="uid://bbt2tv46tokat" path="res://Entities/health_component.gd" id="3_x2ivp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kbf48"]
@@ -9,6 +10,9 @@
 albedo_color = Color(0.5549274, 0.41480064, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vbvf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bai2n"]
+size = Vector3(0.5119629, 0.24505615, 0.73773193)
 
 [node name="Player" type="CharacterBody3D" unique_id=1931111436 node_paths=PackedStringArray("health_component")]
 script = ExtResource("1_4flbx")
@@ -30,3 +34,17 @@ shape = SubResource("BoxShape3D_7vbvf")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1288673849]
 script = ExtResource("3_x2ivp")
+
+[node name="AttackPivot" type="Node3D" parent="." unique_id=1159120520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22366303, 0, 0)
+
+[node name="Hitbox" type="Area3D" parent="AttackPivot" unique_id=2055575347]
+monitoring = false
+monitorable = false
+script = ExtResource("3_lu8i8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackPivot/Hitbox" unique_id=446402282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21956402, 0, 0)
+shape = SubResource("BoxShape3D_bai2n")
+
+[connection signal="body_entered" from="AttackPivot/Hitbox" to="AttackPivot/Hitbox" method="_on_body_entered"]
