@@ -24,10 +24,9 @@ material = SubResource("ShaderMaterial_x033f")
 flip_faces = true
 size = Vector2(2, 2)
 
-[node name="CamRig" type="Node3D" unique_id=1535436592 node_paths=PackedStringArray("target")]
+[node name="CamRig" type="Node3D" unique_id=1535436592]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.8660254, 0.49999994, 0, -0.5, 0.86602527, 0, 0, 0)
 script = ExtResource("1_047un")
-target = NodePath("")
 follow_speed = 20.0
 offset = Vector3(0, 2.461, 4.262)
 
