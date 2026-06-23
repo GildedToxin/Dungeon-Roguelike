@@ -5,3 +5,8 @@ extends Node
 
 func cast() -> void:
 	var projectile = projectile_scene.instantiate()
+	projectile.shoot(Vector3(0, 1, 1))
+
+func _input(event):
+	if event.is_action_pressed("attack"):
+		cast()

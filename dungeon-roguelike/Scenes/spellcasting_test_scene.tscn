@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2hcq61pq6a2b" path="res://Scripts/SpellCasting/spell_caster.gd" id="1_2ats5"]
 [ext_resource type="Script" uid="uid://p8iw5k8xkbyi" path="res://Scripts/SpellCasting/spell_casting_manager.gd" id="1_qd26w"]
+[ext_resource type="PackedScene" uid="uid://n12ws1deohx" path="res://Entities/projectile_base.tscn" id="2_qdkp2"]
 [ext_resource type="PackedScene" uid="uid://b4wnbviojmhm8" path="res://Assets/spell_circle.tscn" id="2_s3oam"]
 [ext_resource type="PackedScene" uid="uid://ccpyhag683ak3" path="res://Assets/spell_modifier.tscn" id="4_yxgvn"]
 
@@ -25,6 +26,7 @@ transform = Transform3D(-4.371139e-08, -0.7071068, 0.7071068, 0, 0.7071068, 0.70
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5075099, 1.9610718)
 mesh = SubResource("SphereMesh_2ats5")
 script = ExtResource("1_2ats5")
+projectile_scene = ExtResource("2_qdkp2")
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=672187491]
 mesh = SubResource("PlaneMesh_30qil")
