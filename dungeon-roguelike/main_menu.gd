@@ -2,7 +2,7 @@ extends CanvasLayer
 @onready var button_join: Button = %ButtonJoin
 @onready var button_quit: Button = %ButtonQuit
 
-const WORLD = preload("uid://c4loax645yjo7")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,5 +19,4 @@ func on_join():
 	hide()
 
 func add_world():
-	var new_world = WORLD.instantiate()
-	get_tree().current_scene.add_child(new_world)
+	SceneManager.LoadDebugScene()
