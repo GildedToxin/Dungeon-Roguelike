@@ -7,9 +7,17 @@ class_name EnemyBase
 func _ready() -> void:
 		health.died.connect(die)
 
-func take_damage(amount: int) -> void:
-	health.take_damage(amount)
+func request_damage(amount: int) -> void:
+	health.request_damage(amount)
 	
 
 func die():
+	if !multiplayer.is_server():
+		return
+
+	destroy.rpc()
+
+
+@rpc("call_local", "reliable")
+func destroy():
 	queue_free()

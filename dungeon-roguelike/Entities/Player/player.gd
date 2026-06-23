@@ -22,6 +22,9 @@ func _ready() -> void:
 		set_physics_process(false)
 
 func _input(event):
+	if not is_multiplayer_authority():
+		return
+		
 	if event.is_action_pressed("attack"):
 		attack()
 
