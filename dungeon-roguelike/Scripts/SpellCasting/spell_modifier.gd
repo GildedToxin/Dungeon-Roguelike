@@ -12,8 +12,15 @@ func _process(delta: float) -> void:
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	var data = 1
-	var prev = TextureRect.new()
+	var wrapper : Control = Control.new()
+	wrapper.custom_minimum_size = texture.get_size()
+	
+	var prev : TextureRect = TextureRect.new()
 	prev.texture = texture
-	set_drag_preview(prev)
+	prev.position = -texture.get_size() * 0.5
+
+	wrapper.add_child(prev)
+
+	set_drag_preview(wrapper)
 	
 	return self
