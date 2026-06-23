@@ -35,7 +35,6 @@ func request_damage(amount: int) -> void:
 	else:
 		_rpc_damage.rpc_id(1, amount)
 
-
 func request_heal(amount: int) -> void:
 	if multiplayer.is_server():
 		_apply_heal(amount)
@@ -47,7 +46,6 @@ func _rpc_damage(amount: int) -> void:
 	if not multiplayer.is_server():
 		return
 	_apply_damage(amount)
-
 
 @rpc("any_peer", "reliable")
 func _rpc_heal(amount: int) -> void:
