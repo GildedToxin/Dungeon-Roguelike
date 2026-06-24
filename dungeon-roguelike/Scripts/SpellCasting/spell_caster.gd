@@ -3,8 +3,12 @@ extends Node3D
 
 @export var projectile_scene: PackedScene
 
+func _input(event: Variant) -> void:
+	if event.is_action_pressed("attack"):
+		cast()
+
 func cast() -> void:
-	var projectile = projectile_scene.instantiate()
+	var projectile := projectile_scene.instantiate()
 	var direction: Vector3
 	
 	# change this direction variable based on how we're handling the way the player is facing
@@ -14,7 +18,3 @@ func cast() -> void:
 	projectile.global_position = global_position
 	
 	projectile.shoot(direction)
-
-func _input(event):
-	if event.is_action_pressed("attack"):
-		cast()
