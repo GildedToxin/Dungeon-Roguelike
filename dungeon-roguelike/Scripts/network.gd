@@ -43,8 +43,6 @@ func on_connected_to_server():
 	add_player(multiplayer.get_unique_id())
 	
 func add_player(peer_id: int):
-	if peer_id == 1:
-		print("e")
 	
 	var new_player = PLAYER.instantiate()
 	var player_cam = CAM_RIG.instantiate()
