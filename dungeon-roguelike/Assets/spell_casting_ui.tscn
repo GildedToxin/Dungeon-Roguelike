@@ -98,6 +98,7 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
+augment_name = "swift"
 
 [node name="Slot_3" type="Control" parent="SigilContainer/Slots" unique_id=1031944756]
 layout_mode = 1
@@ -115,6 +116,7 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
+augment_name = "swift"
 
 [node name="Slot_4" type="Control" parent="SigilContainer/Slots" unique_id=1156889237]
 layout_mode = 1
@@ -132,6 +134,7 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
+augment_name = "swift"
 
 [node name="Slot_5" type="Control" parent="SigilContainer/Slots" unique_id=1991508445]
 layout_mode = 1
