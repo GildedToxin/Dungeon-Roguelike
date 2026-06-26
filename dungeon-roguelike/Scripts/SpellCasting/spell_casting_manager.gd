@@ -1,6 +1,8 @@
 # Place on the spellcasting UI, calculates the spells based on existing parts placed in spell menu
 extends Control
 
+var augment_dictionary:= preload("res://Resources/SpellCasting/Augments/augment_dictionary.gd")
+
 @export var augment_slots: Array[Node]
 var augment_names: Array[String]
 
@@ -23,4 +25,5 @@ func _get_augments() -> void:
 
 func _calculate() -> void:
 	for augment_name in augment_names:
-		pass
+		var augment: AugmentDictionary = augment_dictionary.augments.get(augment_name, null)
+		speed += augment.speed
