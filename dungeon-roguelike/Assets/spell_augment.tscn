@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccpyhag683ak3"]
 
 [ext_resource type="Texture2D" uid="uid://ol0d4e2watdv" path="res://Assets/PlaceholderTexture.png" id="1_nv8fm"]
-[ext_resource type="Script" uid="uid://20x07lk4xjar" path="res://Scripts/SpellCasting/spell_modifier.gd" id="2_hf3if"]
+[ext_resource type="Script" uid="uid://20x07lk4xjar" path="res://Scripts/SpellCasting/spell_augment.gd" id="2_hf3if"]
 
-[node name="SpellModifier" type="TextureRect" unique_id=599924431]
+[node name="SpellAugment" type="TextureRect" unique_id=599924431]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

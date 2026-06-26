@@ -2,6 +2,7 @@
 extends Node3D
 
 @export var projectile_scene: PackedScene
+@export var spell_manager: Node
 
 func _input(event: Variant) -> void:
 	if event.is_action_pressed("attack"):
