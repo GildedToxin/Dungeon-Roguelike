@@ -27,7 +27,7 @@ func spawn_player(peer_id: int) -> void:
 	
 	player_cam.target = new_player
 	
-	playerHolder.add_child(new_player)
+	add_child(new_player)
 	
 	cameraHolder.add_child(player_cam, true)
 
