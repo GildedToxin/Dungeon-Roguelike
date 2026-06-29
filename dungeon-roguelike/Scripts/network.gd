@@ -35,25 +35,28 @@ func host_lobby() -> void:
 	Steam.createLobby(LOBBY_TYPE, MAX_MEMBERS)
 
 func on_lobby_created(connect: int, _lobby_id: int) -> void:
-	if connect == Steam.RESULT_OK:
-		peer = SteamMultiplayerPeer.new()
-		peer.server_relay = true
-		peer.create_host()
-		multiplayer.multiplayer_peer = peer
-		host_created.emit()
+	if connect != Steam.RESULT_OK:
+		return
+		
+	peer = SteamMultiplayerPeer.new()
+	peer.server_relay = true
+	peer.create_host()
+	multiplayer.multiplayer_peer = peer
+	host_created.emit()
 
 func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
-		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
-			if Steam.getLobbyOwner(lobby_id) == Steam.getSteamID():
-				return
+	if response != Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
+		return
+	if Steam.getLobbyOwner(lobby_id) == Steam.getSteamID():
+		return
 			
-			peer = SteamMultiplayerPeer.new()
-			peer.server_relay = true
-			peer.create_client(Steam.getLobbyOwner(lobby_id))
-			multiplayer.multiplayer_peer = peer
-			
-			SceneManager.LoadDebugScene()
-			$MainMenu.hide()
+	peer = SteamMultiplayerPeer.new()
+	peer.server_relay = true
+	peer.create_client(Steam.getLobbyOwner(lobby_id))
+	multiplayer.multiplayer_peer = peer
+		
+	SceneManager.LoadDebugScene()
+	$UserInterface/MainMenu.hide()
 
 func on_lobby_requested(lobby_id: int, _steam_id: int) -> void:
 	Steam.joinLobby(lobby_id)

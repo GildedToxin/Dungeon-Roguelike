@@ -3,6 +3,10 @@ extends Node
 const PLAYER = preload("uid://dskimq7aam0br")
 const CAM_RIG = preload("uid://c42wahi6383ju")
 
+@export var cameraHolder: Node
+@export var playerHolder: Node
+
+
 var players: Array[CharacterBody3D]
 
 func _ready() -> void:
@@ -23,12 +27,9 @@ func spawn_player(peer_id: int) -> void:
 	
 	player_cam.target = new_player
 	
-	add_child(new_player)
+	playerHolder.add_child(new_player)
 	
-	if get_tree().current_scene.name == "test_scene":
-		get_tree().get_root().get_node("test_scene/SubViewportContainer/SubViewport").add_child(player_cam, true)
-	else:
-		get_tree().get_root().get_node("SceneManager/test_scene/SubViewportContainer/SubViewport").add_child(player_cam, true)
+	cameraHolder.add_child(player_cam, true)
 
 	initialize_player(new_player)
 
@@ -38,18 +39,6 @@ func initialize_player(player: CharacterBody3D) -> void:
 	for other in players:
 		player.add_collision_exception_with(other)
 	players.append(player)
-
-func _on_button_host_pressed() -> void:
-	Network.host_lobby()
-	SceneManager.LoadDebugScene()
-	$MainMenu.hide()
-	
-
-
-
-func _on_button_quit_pressed() -> void:
-	get_tree().quit()
-
 
 func _on_multiplayer_spawner_spawned(node: Node) -> void:
 	if node is CharacterBody3D:
