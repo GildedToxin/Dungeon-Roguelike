@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dlsicbixl1nr6"]
+
+[ext_resource type="Texture2D" uid="uid://yngtr8kr7sre" path="res://Assets/UI/Inventory/UIBook.png" id="1_glbya"]
+[ext_resource type="PackedScene" uid="uid://cudxdnexp8a64" path="res://Assets/UI/Inventory/ui_inventory_slot.tscn" id="2_evtp7"]
+
+[node name="Inventory" type="Control" unique_id=1659831743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=819639385]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_glbya")
+
+[node name="InventoryUISlot" parent="." unique_id=166101265 instance=ExtResource("2_evtp7")]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 150.0
+offset_right = 371.0
+offset_bottom = 214.0
