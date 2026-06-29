@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://yo5eyyn0chws"]
+
+[ext_resource type="Script" uid="uid://p8iw5k8xkbyi" path="res://Scripts/SpellCasting/spell_casting_manager.gd" id="1_pmu4q"]
+[ext_resource type="PackedScene" uid="uid://b4wnbviojmhm8" path="res://Assets/spell_circle.tscn" id="2_1k8vh"]
+[ext_resource type="PackedScene" uid="uid://ccpyhag683ak3" path="res://Assets/spell_augment.tscn" id="3_5pe66"]
+
+[node name="SpellCastingUI" type="Control" unique_id=545222661 node_paths=PackedStringArray("augment_slots")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_pmu4q")
+augment_slots = [NodePath("SpellCircle/Augments_1/AugmentSlot_01"), NodePath("SpellCircle/Augments_1/AugmentSlot_02"), NodePath("SpellCircle/Augments_1/AugmentSlot_03"), NodePath("SpellCircle/Augments_1/AugmentSlot_04"), NodePath("SpellCircle/Augments_1/AugmentSlot_05"), NodePath("SpellCircle/Augments_1/AugmentSlot_06"), NodePath("SpellCircle/Augments_1/AugmentSlot_07"), NodePath("SpellCircle/Augments_1/AugmentSlot_08")]
+
+[node name="SpellCircle" parent="." unique_id=1121701569 instance=ExtResource("2_1k8vh")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SigilContainer" type="Panel" parent="." unique_id=426950174]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -340.0
+offset_right = -40.0
+offset_bottom = 340.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(100, 340)
+mouse_filter = 2
+
+[node name="Slots" type="Control" parent="SigilContainer" unique_id=926700371]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -325.0
+offset_right = 100.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Slot_1" type="Control" parent="SigilContainer/Slots" unique_id=2066766115]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_right = -45.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_1" unique_id=599924431 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+augment_name = "swift"
+
+[node name="Slot_2" type="Control" parent="SigilContainer/Slots" unique_id=486940559]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_right = -5.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_2" unique_id=612254514 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+augment_name = "swift"
+
+[node name="Slot_3" type="Control" parent="SigilContainer/Slots" unique_id=1031944756]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_right = 35.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_3" unique_id=517932838 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+augment_name = "swift"
+
+[node name="Slot_4" type="Control" parent="SigilContainer/Slots" unique_id=1156889237]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 35.0
+offset_right = 75.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_4" unique_id=104901998 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+augment_name = "swift"
+
+[node name="Slot_5" type="Control" parent="SigilContainer/Slots" unique_id=1991508445]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = 40.0
+offset_right = -45.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_5" unique_id=1925075114 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_6" type="Control" parent="SigilContainer/Slots" unique_id=88428830]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 40.0
+offset_right = -5.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_6" unique_id=642576287 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_7" type="Control" parent="SigilContainer/Slots" unique_id=1969080439]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_top = 40.0
+offset_right = 35.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_7" unique_id=223046137 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Slot_8" type="Control" parent="SigilContainer/Slots" unique_id=947895718]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 35.0
+offset_top = 40.0
+offset_right = 75.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="SpellModifier" parent="SigilContainer/Slots/Slot_8" unique_id=174040881 instance=ExtResource("3_5pe66")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[editable path="SpellCircle"]

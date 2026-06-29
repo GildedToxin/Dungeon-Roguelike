@@ -2,6 +2,7 @@
 extends Node3D
 
 @export var projectile_scene: PackedScene
+@export var spell_manager: Node
 
 func _input(event: Variant) -> void:
 	if event.is_action_pressed("attack"):
@@ -16,5 +17,10 @@ func cast() -> void:
 	
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = global_position
+	
+	spell_manager.calculate()
+	
+	projectile.speed = spell_manager.speed
+	projectile.duration = spell_manager.duration
 	
 	projectile.shoot(direction)
