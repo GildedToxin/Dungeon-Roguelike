@@ -15,12 +15,15 @@ func cast() -> void:
 	# change this direction variable based on how we're handling the way the player is facing
 	direction = -get_global_transform().basis.z
 	
+	# Adds projectile to scene and sets the position of the projectile
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = global_position
 	
+	# Calculates the cumulative stats of the spell
 	spell_manager.calculate()
 	
 	projectile.speed = spell_manager.speed
 	projectile.duration = spell_manager.duration
 	
+	# Fires the spell
 	projectile.shoot(direction)
