@@ -2,9 +2,6 @@ extends Node
 
 signal host_created()
 
-const PLAYER = preload("uid://dskimq7aam0br")
-
-
 var peer : SteamMultiplayerPeer
 
 #var PORT: int = 9999

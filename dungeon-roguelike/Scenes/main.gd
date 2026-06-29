@@ -1,7 +1,7 @@
 extends Node
 
 const PLAYER = preload("uid://dskimq7aam0br")
-const CAM_RIG = preload("uid://c42wahi6383ju")
+
 
 @export var cameraHolder: Node
 @export var playerHolder: Node
@@ -20,17 +20,8 @@ func on_host_created() -> void:
 
 func spawn_player(peer_id: int) -> void:
 	var new_player: CharacterBody3D = PLAYER.instantiate() as CharacterBody3D
-	var player_cam: Node = CAM_RIG.instantiate()
-	
 	new_player.name = str(peer_id)
-	player_cam.name = str(peer_id)+ "_cam"
-	
-	player_cam.target = new_player
-	
 	add_child(new_player)
-	
-	add_child(player_cam, true)
-	player_cam.reparent(cameraHolder)
 
 	initialize_player(new_player)
 
@@ -43,6 +34,4 @@ func initialize_player(player: CharacterBody3D) -> void:
 
 func _on_multiplayer_spawner_spawned(node: Node) -> void:
 	if node is CharacterBody3D:
-		initialize_player(node)
-	else
-		
+		initialize_player(node)	
