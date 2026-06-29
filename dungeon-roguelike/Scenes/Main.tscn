@@ -9,8 +9,12 @@ script = ExtResource("1_idj7w")
 cameraHolder = NodePath("CAMERA | SubViewportContainer/SubViewport")
 playerHolder = NodePath("Players")
 
+[node name="MultiplayerSpawner2" type="MultiplayerSpawner" parent="." unique_id=753902441]
+_spawnable_scenes = PackedStringArray("uid://c42wahi6383ju")
+spawn_path = NodePath("../CAMERA | SubViewportContainer/SubViewport")
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=2076728329]
-_spawnable_scenes = PackedStringArray("uid://dskimq7aam0br", "uid://c42wahi6383ju")
+_spawnable_scenes = PackedStringArray("uid://dskimq7aam0br")
 spawn_path = NodePath("..")
 
 [node name="Players" type="Node" parent="." unique_id=286061400]
