@@ -48,9 +48,12 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 				return
 			
 			peer = SteamMultiplayerPeer.new()
-			peer.server_replay = true
+			peer.server_relay = true
 			peer.create_client(Steam.getLobbyOwner(lobby_id))
 			multiplayer.multiplayer_peer = peer
+			
+			SceneManager.LoadDebugScene()
+			$MainMenu.hide()
 
 func on_lobby_requested(lobby_id: int, _steam_id: int) -> void:
 	Steam.joinLobby(lobby_id)
