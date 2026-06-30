@@ -53,7 +53,7 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 	multiplayer.multiplayer_peer = peer
 		
 	SceneManager.LoadDebugScene()
-	get_tree().current_scene.userInterface.hide_user_interfacce()
+	get_tree().current_scene.userInterface.hide_main_menu()
 
 func on_lobby_requested(lobby_id: int, _steam_id: int) -> void:
 	Steam.joinLobby(lobby_id)
