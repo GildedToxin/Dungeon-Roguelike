@@ -5,6 +5,7 @@ const PLAYER = preload("uid://dskimq7aam0br")
 
 @export var cameraHolder: Node
 @export var playerHolder: Node
+@export var userInterface: Node
 
 
 var players: Array[CharacterBody3D]
