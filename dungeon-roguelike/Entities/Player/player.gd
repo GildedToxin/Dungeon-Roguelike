@@ -27,7 +27,9 @@ func _ready() -> void:
 	var player_cam: Node = CAM_RIG.instantiate()
 	player_cam.name = str(int(name))+ "_cam"
 	player_cam.target = $"." 
-	add_child(player_cam, true)
+	
+
+	get_tree().current_scene.cameraHolder.add_child(player_cam, true)
 	#player_cam.reparent(cameraHolder)
 
 func _input(event: InputEvent)  -> void:
