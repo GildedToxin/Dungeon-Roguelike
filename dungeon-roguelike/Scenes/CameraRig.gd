@@ -1,9 +1,9 @@
 extends Node3D
 
+@export var camera: Camera3D
 @export var target: CharacterBody3D
 @export var follow_speed: float = 5.0
 @export var offset: Vector3 = Vector3(0, 0, 0)
-@onready var camera: Camera3D = $Camera3D
 
 func _ready() -> void:
 	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
