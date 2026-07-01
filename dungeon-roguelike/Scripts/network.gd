@@ -74,29 +74,23 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 func on_lobby_requested(lobby_id: int, _steam_id: int) -> void:
 	Steam.joinLobby(lobby_id)
 
-#func remove_player(id: int) -> void:
-	## If the peer still has a player instance.
-	#if %Players.has_node(str(id)):
-		## Remove that player instance.
-		#%Players.get_node(str(id)).queue_free()
-
-
-#func remove_player(peer_id: int) -> void:
-	#if peer_id == 1:
-		#leave_server()
-	#
-	#var players: Array[Node] = get_tree().get_nodes_in_group("Player")
-	#var player_to_remove: int = players.find_custom(func(item: Node) -> bool: return item.name == str(peer_id))
-	#if player_to_remove != -1:
-		#players[player_to_remove].queue_free()
-	#
-#func leave_server() -> void:
-	#multiplayer.multiplayer_peer.close()
-	#multiplayer.multiplayer_peer = null
-	#clean_up_signals()
-	#get_tree().quit()
-	#
-#func clean_up_signals() -> void:
-	#multiplayer.peer_connected.disconnect(add_player)
-	#multiplayer.peer_disconnected.disconnect(remove_player)
-	#multiplayer.connected_to_server.disconnect(on_connected_to_server)
+func remove_player(peer_id: int) -> void:
+	if peer_id == 1:
+		leave_server()
+	
+	var players: Array[Node] = get_tree().get_nodes_in_group("Player")
+	var player_to_remove: int = players.find_custom(func(item: Node) -> bool: return item.name == str(peer_id))
+	if player_to_remove != -1:
+		players[player_to_remove].queue_free()
+		
+func leave_server() -> void:
+	multiplayer.multiplayer_peer.close()
+	multiplayer.multiplayer_peer = null
+	clean_up_signals()
+	get_tree().quit()
+	
+func clean_up_signals() -> void:
+	multiplayer.peer_disconnected.disconnect(remove_player)
+	Steam.lobby_created.disconnect(on_lobby_created)
+	Steam.lobby_joined.disconnect(on_lobby_joined)
+	Steam.join_requested.disconnect(on_lobby_requested)
