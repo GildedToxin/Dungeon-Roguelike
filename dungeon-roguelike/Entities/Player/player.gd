@@ -14,14 +14,16 @@ func _enter_tree() -> void:
 	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer():
 		set_multiplayer_authority(int(name))
 	
-		var camera_rig: Node3D = $"CAMERA | SubViewportContainer/SubViewport/CameraRig"
-		if not is_multiplayer_authority():
-			camera_rig.camera.current = false
-			print("e")
+		
 
 func _ready() -> void:
 	add_to_group("Player")
 	nameplate.text = name
+	
+	var camera_rig: Node3D = $"CAMERA | SubViewportContainer/SubViewport/CameraRig"
+	if not is_multiplayer_authority():
+		camera_rig.camera.current = false
+		print("e")
 	
 	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
 		set_process(false)
