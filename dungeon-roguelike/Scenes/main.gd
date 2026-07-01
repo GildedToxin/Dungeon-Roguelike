@@ -22,7 +22,7 @@ func on_host_created() -> void:
 func spawn_player(peer_id: int) -> void:
 	var new_player: CharacterBody3D = PLAYER.instantiate() as CharacterBody3D
 	new_player.name = str(peer_id)
-	add_child(new_player)
+	SceneManager.current_level.add_child(new_player)
 
 	initialize_player(new_player)
 

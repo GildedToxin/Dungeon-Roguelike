@@ -10,13 +10,22 @@ var peer : SteamMultiplayerPeer
 
 const LOBBY_TYPE := Steam.LobbyType.LOBBY_TYPE_FRIENDS_ONLY
 const MAX_MEMBERS := 4
+static var is_steam_initialized := false
 
-func _ready() -> void:
+
+func _ready() -> void:	
+	if not Steam.isSteamRunning():
+		is_steam_initialized = false
+		return
+	else:
+		is_steam_initialized = true
+	
 	Steam.initRelayNetworkAccess()
 	Steam.lobby_created.connect(on_lobby_created)
 	Steam.lobby_joined.connect(on_lobby_joined)
 	Steam.join_requested.connect(on_lobby_requested)
 	
+	#multiplayer.peer_disconnected.connect(remove_player)
 	
 	#if get_tree().current_scene.name == "test_scene":
 		#if OS.has_feature('server'):
@@ -26,9 +35,15 @@ func _ready() -> void:
 			#get_tree().quit()
 
 func _process(_delta: float) -> void:
+	if !is_steam_initialized:
+		return
+	
 	Steam.run_callbacks()
 
 func host_lobby() -> void:
+	if !is_steam_initialized:
+		return
+		
 	Steam.createLobby(LOBBY_TYPE, MAX_MEMBERS)
 
 @warning_ignore("shadowed_variable_base_class")
@@ -59,56 +74,13 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 func on_lobby_requested(lobby_id: int, _steam_id: int) -> void:
 	Steam.joinLobby(lobby_id)
 
+#func remove_player(id: int) -> void:
+	## If the peer still has a player instance.
+	#if %Players.has_node(str(id)):
+		## Remove that player instance.
+		#%Players.get_node(str(id)).queue_free()
 
 
-
-
-
-
-
-
-
-#
-#func start_server() -> void:
-	#is_server = true;
-	#enet_peer.create_server(PORT)
-	#multiplayer.peer_connected.connect(add_player)
-	#multiplayer.peer_disconnected.connect(remove_player)
-	#
-	#multiplayer.multiplayer_peer = enet_peer
-#
-#func join_server() -> void:
-	#if not is_server:
-		#enet_peer.create_client(IP_ADRESS, PORT)
-		#multiplayer.peer_connected.connect(add_player)
-		#multiplayer.peer_disconnected.connect(remove_player)
-		#
-	#elif is_server:
-		#add_player(multiplayer.get_unique_id())
-		#
-	#multiplayer.connected_to_server.connect(on_connected_to_server)
-	#multiplayer.multiplayer_peer = enet_peer
-	#
-	#
-#
-#func on_connected_to_server() -> void:
-	#add_player(multiplayer.get_unique_id())
-	#
-#func add_player(peer_id: int) -> void:
-	#
-	#var new_player: Node = PLAYER.instantiate()
-	#var player_cam: Node = CAM_RIG.instantiate()
-	#new_player.name = str(peer_id)
-	#player_cam.name = str(peer_id)+ "_cam"
-	#get_tree().current_scene.add_child(new_player, true)
-#
-	#if get_tree().current_scene.name == "test_scene":
-		#get_tree().get_root().get_node("test_scene/SubViewportContainer/SubViewport").add_child(player_cam, true)
-	#else:
-		#get_tree().get_root().get_node("SceneManager/test_scene/SubViewportContainer/SubViewport").add_child(player_cam, true)
-#
-	#player_cam.target = new_player
-#
 #func remove_player(peer_id: int) -> void:
 	#if peer_id == 1:
 		#leave_server()

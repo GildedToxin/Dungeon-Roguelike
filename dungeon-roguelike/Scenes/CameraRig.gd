@@ -5,13 +5,8 @@ extends Node3D
 @export var offset: Vector3 = Vector3(0, 0, 0)
 @onready var camera: Camera3D = $Camera3D
 
-
-
-func _enter_tree() -> void:
-	set_multiplayer_authority(int(name))
-
 func _ready() -> void:
-	if not is_multiplayer_authority():
+	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
 		camera.current = false
 		set_process(false)
 		set_physics_process(false)
