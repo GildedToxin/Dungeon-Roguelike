@@ -11,10 +11,11 @@ var is_attacking : bool = false
 @onready var nameplate: Label3D = $Nameplate
 
 func _enter_tree() -> void:
-	set_multiplayer_authority(int(name))
+	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
+		set_multiplayer_authority(int(name))
 	
-	var camera_rig: Node3D = $"CAMERA | SubViewportContainer/SubViewport/CameraRig"
-	camera_rig.set_multiplayer_authority(int(name))
+		var camera_rig: Node3D = $"CAMERA | SubViewportContainer/SubViewport/CameraRig"
+		camera_rig.set_multiplayer_authority(int(name))
 
 func _ready() -> void:
 	add_to_group("Player")
