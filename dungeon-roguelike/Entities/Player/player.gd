@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var player_rotation_speed: float = 0.1
 
 @export var health_component: HealthComponent
+@export var camera___sub_viewport_container: SubViewportContainer
 
 var is_attacking : bool = false
 @onready var hitbox: Area3D = $AttackPivot/Hitbox 
@@ -20,10 +21,8 @@ func _ready() -> void:
 	add_to_group("Player")
 	nameplate.text = name
 	
-	var camera_rig: Node3D = $"CAMERA | SubViewportContainer/SubViewport/CameraRig"
 	if not is_multiplayer_authority():
-		camera_rig.camera.current = false
-		print("e")
+		camera___sub_viewport_container.visible = false
 	
 	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
 		set_process(false)
