@@ -7,14 +7,12 @@
 [node name="Main" type="Node" unique_id=2047407435 node_paths=PackedStringArray("cameraHolder", "playerHolder", "userInterface")]
 script = ExtResource("1_idj7w")
 cameraHolder = NodePath("")
-playerHolder = NodePath("Players")
+playerHolder = NodePath("")
 userInterface = NodePath("UserInterface")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=2076728329]
 _spawnable_scenes = PackedStringArray("uid://dskimq7aam0br", "res://Entities/Player/cam_rig.tscn")
 spawn_path = NodePath("..")
-
-[node name="Players" type="Node" parent="." unique_id=286061400]
 
 [node name="UserInterface" type="Node" parent="." unique_id=1978203076 node_paths=PackedStringArray("mainMenu")]
 script = ExtResource("3_rgh2o")
