@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c4loax645yjo7"]
 
 [ext_resource type="PackedScene" uid="uid://c74a34oy8qd0" path="res://Entities/EnemyDebug/EnemyDebug.tscn" id="3_50ct6"]
-[ext_resource type="PackedScene" uid="uid://dskimq7aam0br" path="res://Entities/Player/player.tscn" id="3_ak5v8"]
 [ext_resource type="Shader" uid="uid://dqg2a5ev3rm4c" path="res://Shaders/ToonShader.gdshader" id="4_hb2xm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e1a36"]
@@ -89,9 +88,6 @@ material = SubResource("ShaderMaterial_ii5jo")
 [sub_resource type="Compositor" id="Compositor_ak5v8"]
 
 [node name="test_scene" type="Node3D" unique_id=2004884040]
-
-[node name="Player" parent="." unique_id=1931111436 instance=ExtResource("3_ak5v8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2809549, -0.056652993, 0.64730495)
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=556582167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2809549, -0.056652993, 0.64730495)

@@ -11,7 +11,7 @@ var is_attacking : bool = false
 @onready var nameplate: Label3D = $Nameplate
 
 func _enter_tree() -> void:
-	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
+	if Network.is_steam_initialized and multiplayer.has_multiplayer_peer():
 		set_multiplayer_authority(int(name))
 	
 		var camera_rig: Node3D = $"CAMERA | SubViewportContainer/SubViewport/CameraRig"
